@@ -1,5 +1,5 @@
 import { ConfigModule as OriginalConfigModule } from '@nestjs/config';
-import * as Joi from 'joi';
+import Joi from 'joi';
 
 const validationSchema = Joi.object<any, false, IEnv>({
   NODE_ENV: Joi.string()
