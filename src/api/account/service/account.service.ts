@@ -1,12 +1,12 @@
-import { Account } from '@ACCOUNT/domain';
+import { Account } from '@ACCOUNT/model/aggregate';
 import { GoogleProfile } from '@ACCOUNT/google';
-import { AccountEntity } from '@ACCOUNT/infrastructure/model/account.entity';
+import { AccountEntity } from '@ACCOUNT/model/account.entity';
 import { map_entity_to_aggregate } from '@ACCOUNT/util';
 import { map } from '@COMMON/util';
 import { Injectable } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Repository } from 'typeorm';
-import { IAccountService } from '../port';
+import { IAccountService } from '../application/port';
 
 @Injectable()
 export class AccountService implements IAccountService {

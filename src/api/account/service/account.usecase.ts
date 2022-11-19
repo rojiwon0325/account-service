@@ -3,7 +3,7 @@ import { map_access_token_payload } from '@ACCOUNT/util';
 import { HttpExceptionFactory } from '@COMMON/exception';
 import { Inject, Injectable } from '@nestjs/common';
 import { JwtService } from '@nestjs/jwt';
-import { IAccountService, IAccountUsecase } from '../port';
+import { IAccountService, IAccountUsecase } from '../application/port';
 import { AccountService } from './account.service';
 
 @Injectable()

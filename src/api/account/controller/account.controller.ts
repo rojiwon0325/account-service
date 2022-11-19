@@ -9,16 +9,12 @@ import {
 import { AuthGuard } from '@nestjs/passport';
 import { Response } from 'express';
 import { GoogleProfile } from '../google/google-profile';
-import { IAccountUsecase } from '../application/port';
-import { AccountUsecase } from '@ACCOUNT/application/adapter';
 import { Session as ISession } from 'express-session';
+import { IAccountUsecase } from '@ACCOUNT/service/interface';
 
 @Controller()
 export class AccountController {
-  constructor(
-    @Inject(AccountUsecase)
-    private readonly accountUsecase: IAccountUsecase,
-  ) {}
+  constructor(private readonly accountUsecase: IAccountUsecase) {}
 
   @Get('sign-in')
   @UseGuards(AuthGuard('goole'))

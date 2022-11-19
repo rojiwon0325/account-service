@@ -21,6 +21,7 @@ export class GoogleStrategy extends PassportStrategy(Strategy, 'google') {
     profile: Profile,
   ): GoogleProfile {
     // 구글로 부터 넘겨받은 사용자 정보
+    console.log(profile);
     return { sub: '', username: '', email: '' };
   }
 }

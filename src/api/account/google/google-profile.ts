@@ -1,8 +1,8 @@
-import { Account } from '@ACCOUNT/domain';
+import { Account } from '@ACCOUNT/model/aggregate';
 import { createParamDecorator, ExecutionContext } from '@nestjs/common';
 import TSON from 'typescript-json';
 
-export type GoogleProfile = Pick<Account, 'sub' | 'email' | 'username'>;
+export type GoogleProfile = Pick<Account.State, 'sub' | 'email' | 'username'>;
 
 export const GoogleProfile = createParamDecorator(
   (_: unknown, ctx: ExecutionContext) => {

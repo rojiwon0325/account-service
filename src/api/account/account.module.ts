@@ -2,10 +2,10 @@ import { JwtModule } from '@nestjs/jwt';
 import { PassportModule } from '@nestjs/passport';
 import { Module } from '@nestjs/common';
 import { TypeOrmModule } from '@nestjs/typeorm';
-import { AccountEntity } from './infrastructure/model/account.entity';
+import { AccountEntity } from './model/account.entity';
 import { ConfigService } from '@nestjs/config';
-import { AccountService, AccountUsecase } from './application/adapter';
-import { AccountController } from './presentation/account.controller';
+import { AccountService, AccountUsecase } from './service';
+import { AccountController } from './controller/account.controller';
 
 @Module({
   imports: [

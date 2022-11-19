@@ -1,4 +1,4 @@
-import { Account } from '../domain';
+import { Account } from '../model/aggregate';
 
 export const map_access_token_payload = (
   account: Account,
