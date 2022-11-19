@@ -1,9 +1,9 @@
-import { Account } from '@ACCOUNT/model/aggregate';
+import { Account } from '@ACCOUNT/domain';
 import { GoogleProfile } from '@ACCOUNT/google/google-profile';
 
 export interface IAccountService {
   readonly findOne: (
-    filter: Pick<Account.State, 'sub'>,
-  ) => Promise<Account.State | null>;
+    filter: Partial<Pick<Account.State, 'id'>>,
+  ) => Promise<Account.State>;
   readonly findOneOrCreate: (profile: GoogleProfile) => Promise<Account.State>;
 }

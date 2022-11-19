@@ -1,4 +1,4 @@
-import { Account } from '@ACCOUNT/model/aggregate';
+import { Account } from '@ACCOUNT/domain';
 import { createParamDecorator, ExecutionContext } from '@nestjs/common';
 import TSON from 'typescript-json';
 
