@@ -6,6 +6,9 @@ import { AccountEntity } from './infrastructure/model/account.entity';
 import { ConfigService } from '@nestjs/config';
 import { AccountService, AccountUsecase } from './application/adapter';
 import { AccountController } from './presentation/account.controller';
+import { AccountEntityMapper } from './infrastructure/adapter/account.mapper';
+import { AccountRepository } from './infrastructure/adapter/account.repository';
+import { GoogleStrategy } from './google';
 
 @Module({
   imports: [
@@ -15,15 +18,22 @@ import { AccountController } from './presentation/account.controller';
       inject: [ConfigService],
       useFactory(configService: ConfigService<IEnv, true>) {
         return {
-          //secret: configService.get('JWT_SECRET'),
-          privateKey: 'private_key',
-          publicKey: 'public_key',
-          signOptions: { expiresIn: '60s' },
+          privateKey: configService.get('ACCESS_TOKEN_PRIVATEKEY'),
+          publicKey: configService.get('ACCESS_TOKEN_PUBLICKEY'),
+          signOptions: {
+            expiresIn: configService.get('ACCESS_TOKEN_EXPIRESIN'),
+          },
         };
       },
     }),
   ],
-  providers: [AccountService, AccountUsecase],
+  providers: [
+    AccountEntityMapper,
+    AccountRepository,
+    AccountService,
+    AccountUsecase,
+    GoogleStrategy,
+  ],
   controllers: [AccountController],
 })
 export class AccountModule {}

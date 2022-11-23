@@ -1,24 +1,37 @@
-import { Controller, Get, Res, Session, UseGuards } from '@nestjs/common';
+import {
+  Controller,
+  Get,
+  Inject,
+  Req,
+  Res,
+  Session,
+  UseGuards,
+} from '@nestjs/common';
 import { AuthGuard } from '@nestjs/passport';
-import { Response } from 'express';
+import { Request, Response } from 'express';
 import { GoogleProfile } from '../google/google-profile';
 import { Session as ISession } from 'express-session';
 import { IAccountUsecase } from '@ACCOUNT/application/port';
 import { Account } from '@ACCOUNT/domain';
+import { AccountUsecase } from '@ACCOUNT/application/adapter';
+import { ACCESS_TOKEN, REFRESH_TOKEN } from '@ACCOUNT/cookie';
 
 @Controller()
 export class AccountController {
-  constructor(private readonly accountUsecase: IAccountUsecase) {}
+  constructor(
+    @Inject(AccountUsecase)
+    private readonly accountUsecase: IAccountUsecase,
+  ) {}
 
   @Get('sign-in')
-  @UseGuards(AuthGuard('goole'))
+  @UseGuards(AuthGuard('google'))
   signIn() {
     // redirect account.google.com
     return;
   }
 
   @Get('oauth/callback')
-  @UseGuards(AuthGuard('goole'))
+  @UseGuards(AuthGuard('google'))
   async callback(
     @Session()
     session: ISession & Partial<Record<'account', Pick<Account.State, 'id'>>>,
@@ -29,7 +42,7 @@ export class AccountController {
       profile,
     );
     session.account = { id: account_id };
-    res.cookie('access_token', access_token, { httpOnly: true });
+    res.cookie(ACCESS_TOKEN, access_token, { httpOnly: true });
     return {
       refresh_token: session.id,
       access_token,
@@ -38,11 +51,12 @@ export class AccountController {
 
   @Get('sign-out')
   async signOut(
-    @Session() session: ISession,
+    @Req() req: Request,
     @Res({ passthrough: true }) res: Response,
   ) {
-    session.destroy(() => void 0);
-    res.clearCookie('access_token');
+    req.session.destroy(() => void 0);
+    res.clearCookie(ACCESS_TOKEN);
+    res.clearCookie(REFRESH_TOKEN);
     return;
   }
 
@@ -55,7 +69,7 @@ export class AccountController {
     const access_token = await this.accountUsecase.refresh({
       id: session.account?.id,
     });
-    res.cookie('access_token', access_token, { httpOnly: true });
+    res.cookie(ACCESS_TOKEN, access_token, { httpOnly: true });
     return { access_token };
   }
 }

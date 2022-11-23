@@ -3,7 +3,6 @@ import { ForumPermission } from './permission/forum';
 
 export namespace Account {
   export type Id = number;
-
   /**
    * 여러 서비스의 권한을 저장한 객체
    */
@@ -46,9 +45,30 @@ export interface Account {
 
 export const Account: Account = {
   get(args) {
-    throw new Error('Function not implemented.');
+    const now = new Date();
+    const {
+      id = 0,
+      created_at = now,
+      updated_at = now,
+      sub,
+      email,
+      username,
+      role = {
+        forum: 'None',
+      },
+    } = args;
+    return {
+      id,
+      created_at,
+      updated_at,
+      sub,
+      email,
+      username,
+      role,
+    };
   },
   getAccessTokenPayload(agg) {
-    throw new Error('Function not implemented.');
+    const { id, username, email, role } = agg;
+    return { id, username, email, role };
   },
 };

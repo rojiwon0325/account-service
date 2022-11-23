@@ -13,8 +13,16 @@ const validationSchema = Joi.object<any, false, IEnv>({
   DB_PASSWORD: Joi.string().required(),
   DB_DATABASE: Joi.string().required(),
 
-  JWT_SECRET: Joi.string().required(),
-  JWT_EXPIRESIN: Joi.string().required(),
+  ACCESS_TOKEN_PRIVATEKEY: Joi.string().required(),
+  ACCESS_TOKEN_PUBLICKEY: Joi.string().required(),
+  ACCESS_TOKEN_EXPIRESIN: Joi.string().required(),
+
+  SESSION_SECRET: Joi.string().required(),
+
+  GOOGLE_CLIENT_ID: Joi.string().required(),
+  GOOGLE_CLIENT_SECRET: Joi.string().required(),
+
+  OAUTH_CALLBACK: Joi.string().required(),
 });
 
 export const ConfigModule = OriginalConfigModule.forRoot({

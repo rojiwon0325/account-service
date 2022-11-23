@@ -14,5 +14,5 @@ export class AccountEntity extends TypeOrmBaseEntity {
   email!: string;
 
   @OneToOne(() => ForumPermissionEntity)
-  permission_forum!: ForumPermissionEntity;
+  permission_forum?: ForumPermissionEntity;
 }

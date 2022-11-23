@@ -5,12 +5,14 @@ import { AccountService } from './account.service';
 import { IAccountService, IAccountUsecase } from '../port';
 import { Account } from '@ACCOUNT/domain';
 import { IAccountRepository } from '@ACCOUNT/infrastructure/port';
+import { AccountRepository } from '@ACCOUNT/infrastructure/adapter/account.repository';
 
 @Injectable()
 export class AccountUsecase implements IAccountUsecase {
   constructor(
     @Inject(AccountService)
     private readonly service: IAccountService,
+    @Inject(AccountRepository)
     private readonly repository: IAccountRepository,
     private readonly jwtService: JwtService,
   ) {}
