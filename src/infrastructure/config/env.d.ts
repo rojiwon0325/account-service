@@ -9,7 +9,6 @@ type IEnv = {
   DB_DATABASE: string;
 
   ACCESS_TOKEN_PRIVATEKEY: string;
-  ACCESS_TOKEN_PUBLICKEY: string;
   ACCESS_TOKEN_EXPIRESIN: string;
 
   SESSION_SECRET: string;

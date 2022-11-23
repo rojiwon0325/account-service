@@ -19,9 +19,9 @@ import { GoogleStrategy } from './google';
       useFactory(configService: ConfigService<IEnv, true>) {
         return {
           privateKey: configService.get('ACCESS_TOKEN_PRIVATEKEY'),
-          publicKey: configService.get('ACCESS_TOKEN_PUBLICKEY'),
           signOptions: {
             expiresIn: configService.get('ACCESS_TOKEN_EXPIRESIN'),
+            algorithm: 'RS256',
           },
         };
       },

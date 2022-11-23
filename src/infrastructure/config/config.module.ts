@@ -14,7 +14,6 @@ const validationSchema = Joi.object<any, false, IEnv>({
   DB_DATABASE: Joi.string().required(),
 
   ACCESS_TOKEN_PRIVATEKEY: Joi.string().required(),
-  ACCESS_TOKEN_PUBLICKEY: Joi.string().required(),
   ACCESS_TOKEN_EXPIRESIN: Joi.string().required(),
 
   SESSION_SECRET: Joi.string().required(),
