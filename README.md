@@ -10,28 +10,14 @@
 
 </div>
 
-### 환경변수
+## 개요
 
-```
-PORT
-DB_HOST
-DB_PORT
-DB_USERNAME
-DB_PASSWORD
-DB_DATABASE
+프로젝트를 진행하면서 반복적으로 사용되는 인증 모듈을 별도 서버로 구현하였습니다.
 
-JWT_SECRET
-JWT_EXPIRESIN
-```
+## 구성도
 
-## 설계도
-
-![image](https://user-images.githubusercontent.com/68629004/202209126-0710aa21-8152-49f4-b836-6ab9296cd509.png)
+![image](https://user-images.githubusercontent.com/68629004/203493478-348322e7-0449-43ec-8ded-a8a7687feaa1.png)
 
 ## API 문서
 
 - [View in the `Swagger Editor`](https://editor.swagger.io/?url=https://raw.githubusercontent.com/rojiwon0325/account-service/main/doc/swagger.json)
-
-## 개발 진행
-
-- [진행 사항 확인하기](https://github.com/users/rojiwon0325/projects/6)
