@@ -38,12 +38,13 @@
     "@nestjs/platform-express": "^9.2.0",
     "@nestjs/typeorm": "^9.0.1",
     "cookie-parser": "^1.4.6",
+    "express-session": "^1.17.3",
     "helmet": "^6.0.0",
     "joi": "^17.7.0",
     "mysql2": "^2.3.3",
     "nestia-fetcher": "^2.0.4",
     "nestia-helper": "^3.1.10",
-    "passport-jwt": "^4.0.0",
+    "passport-google-oauth20": "^2.0.0",
     "reflect-metadata": "^0.1.13",
     "rxjs": "^7.5.7",
     "typeorm": "^0.3.10",
@@ -55,9 +56,10 @@
     "@nestjs/testing": "^9.2.0",
     "@types/cookie-parser": "^1.4.3",
     "@types/express": "^4.17.14",
+    "@types/express-session": "^1.17.5",
     "@types/jest": "29.2.2",
     "@types/node": "^18.11.9",
-    "@types/passport-jwt": "^3.0.7",
+    "@types/passport-google-oauth20": "^2.0.11",
     "@types/supertest": "^2.0.12",
     "@typescript-eslint/eslint-plugin": "^5.42.1",
     "@typescript-eslint/parser": "^5.42.1",
@@ -99,7 +101,7 @@
     "moduleNameMapper": {
       "^src/(.*)$": "<rootDir>/../src/$1",
       "@COMMON/(.*)$": "<rootDir>/../src/api/common/$1",
-      "@AUTH/(.*)$": "<rootDir>/../src/api/auth/$1"
+      "@ACCOUNT/(.*)$": "<rootDir>/../src/api/account/$1"
     },
     "coveragePathIgnorePatterns": [
       "main.ts",

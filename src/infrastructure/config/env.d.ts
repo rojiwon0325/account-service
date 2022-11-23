@@ -8,8 +8,16 @@ type IEnv = {
   DB_PASSWORD: string;
   DB_DATABASE: string;
 
-  JWT_SECRET: string;
-  JWT_EXPIRESIN: string;
+  ACCESS_TOKEN_PRIVATEKEY: string;
+  ACCESS_TOKEN_PUBLICKEY: string;
+  ACCESS_TOKEN_EXPIRESIN: string;
+
+  SESSION_SECRET: string;
+
+  GOOGLE_CLIENT_ID: string;
+  GOOGLE_CLIENT_SECRET: string;
+
+  OAUTH_CALLBACK: string;
 };
 
 declare namespace NodeJS {
