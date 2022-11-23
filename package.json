@@ -1,6 +1,6 @@
 {
   "name": "account-service",
-  "version": "0.0.1",
+  "version": "1.0.0",
   "description": "다른 도메인 서버에 연동가능한 인증/인가 서버",
   "author": "",
   "private": true,
@@ -48,7 +48,7 @@
     "reflect-metadata": "^0.1.13",
     "rxjs": "^7.5.7",
     "typeorm": "^0.3.10",
-    "typescript-json": "^3.3.26"
+    "typescript-json": "^3.3.36"
   },
   "devDependencies": {
     "@nestjs/cli": "^9.1.5",
@@ -57,20 +57,20 @@
     "@types/cookie-parser": "^1.4.3",
     "@types/express": "^4.17.14",
     "@types/express-session": "^1.17.5",
-    "@types/jest": "29.2.2",
+    "@types/jest": "29.2.3",
     "@types/node": "^18.11.9",
     "@types/passport-google-oauth20": "^2.0.11",
     "@types/supertest": "^2.0.12",
-    "@typescript-eslint/eslint-plugin": "^5.42.1",
-    "@typescript-eslint/parser": "^5.42.1",
+    "@typescript-eslint/eslint-plugin": "^5.44.0",
+    "@typescript-eslint/parser": "^5.44.0",
     "cross-env": "^7.0.3",
-    "eslint": "^8.27.0",
+    "eslint": "^8.28.0",
     "eslint-config-prettier": "^8.5.0",
     "eslint-plugin-prettier": "^4.2.1",
     "jest": "29.3.1",
     "nestia": "^3.1.6",
     "pm2": "^5.2.2",
-    "prettier": "^2.7.1",
+    "prettier": "^2.8.0",
     "rimraf": "^3.0.2",
     "source-map-support": "^0.5.21",
     "supertest": "^6.3.1",
@@ -79,7 +79,7 @@
     "ts-node": "^10.9.1",
     "tsconfig-paths": "4.1.0",
     "ttypescript": "^1.5.13",
-    "typescript": "^4.8.4",
+    "typescript": "^4.9.3",
     "typescript-transform-paths": "^3.4.4"
   },
   "jest": {

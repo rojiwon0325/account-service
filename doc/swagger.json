@@ -2,13 +2,13 @@
   "openapi": "3.0.1",
   "servers": [
     {
-      "url": "https://github.com/rojiwon0325/nestddd",
-      "description": "nestjs template for ddd"
+      "url": "https://github.com/rojiwon0325/account-service",
+      "description": "타 서비스와 연동 가능한 인증 서버"
     }
   ],
   "info": {
-    "version": "0.0.1",
-    "title": "NestDDD - nestjs template designed DDD"
+    "version": "1.0.0",
+    "title": "Account Service"
   },
   "paths": {
     "/sign-in": {
@@ -20,7 +20,7 @@
             "description": ""
           }
         },
-        "description": ""
+        "description": "구글 인증 서버를 통한 로그인 API"
       }
     },
     "/oauth/callback": {
@@ -29,17 +29,17 @@
         "parameters": [],
         "responses": {
           "200": {
-            "description": "",
+            "description": "로그인 API 요청시 생성된 토큰 정보를 포함합니다.",
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/__object"
+                  "$ref": "#/components/schemas/__type"
                 }
               }
             }
           }
         },
-        "description": ""
+        "description": "로그인 인증 성공시 redirect되는 경로. 인증 성공시 세션을 생성하고 access token과 함께 쿠키에 추가됩니다."
       }
     },
     "/sign-out": {
@@ -51,7 +51,7 @@
             "description": ""
           }
         },
-        "description": ""
+        "description": "로그 아웃 API\n세션을 제거하고 쿠키도 제거합니다."
       }
     },
     "/refresh": {
@@ -60,26 +60,31 @@
         "parameters": [],
         "responses": {
           "200": {
-            "description": "",
+            "description": "재생성된 access_token을 포함합니다.",
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/__object.o1"
+                  "$ref": "#/components/schemas/__type.o1"
                 }
               }
             }
           }
         },
-        "description": ""
+        "description": "access token 리프레시 API"
       }
     }
   },
   "components": {
     "schemas": {
-      "__object": {
+      "__type": {
         "type": "object",
         "properties": {
           "refresh_token": {
+            "type": "string",
+            "nullable": false,
+            "x-tson-required": true
+          },
+          "access_token": {
             "type": "string",
             "nullable": false,
             "x-tson-required": true
@@ -87,14 +92,24 @@
         },
         "nullable": false,
         "required": [
-          "refresh_token"
+          "refresh_token",
+          "access_token"
         ],
         "x-tson_jsDocTags": []
       },
-      "__object.o1": {
+      "__type.o1": {
         "type": "object",
-        "properties": {},
+        "properties": {
+          "access_token": {
+            "type": "string",
+            "nullable": false,
+            "x-tson-required": true
+          }
+        },
         "nullable": false,
+        "required": [
+          "access_token"
+        ],
         "x-tson_jsDocTags": []
       }
     }
