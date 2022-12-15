@@ -12,11 +12,11 @@
 
 ## 개요
 
-프로젝트를 진행하면서 반복적으로 사용되는 인증 모듈을 별도 서버로 구현하였습니다.
+인증된 사용자 프로필 정보를 토큰으로 발급합니다. 해당 토큰을 사용해 다른 서비스는 신뢰할 수 있는 사용자 정보를 얻을 수 있습니다.
 
 ## 구성도
 
-![image](https://user-images.githubusercontent.com/68629004/203493478-348322e7-0449-43ec-8ded-a8a7687feaa1.png)
+![image](https://user-images.githubusercontent.com/68629004/207876351-59e0bf15-d3f4-4068-896d-d3ff995faa04.png)
 
 ## API 문서
 

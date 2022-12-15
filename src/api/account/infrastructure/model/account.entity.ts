@@ -1,6 +1,5 @@
 import { TypeOrmBaseEntity } from '@COMMON/base';
-import { Column, Entity, OneToOne } from 'typeorm';
-import { ForumPermissionEntity } from './forum-permission.entity';
+import { Column, Entity } from 'typeorm';
 
 @Entity('accounts')
 export class AccountEntity extends TypeOrmBaseEntity {
@@ -12,7 +11,4 @@ export class AccountEntity extends TypeOrmBaseEntity {
 
   @Column()
   email!: string;
-
-  @OneToOne(() => ForumPermissionEntity)
-  permission_forum?: ForumPermissionEntity;
 }

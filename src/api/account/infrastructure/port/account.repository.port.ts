@@ -8,6 +8,6 @@ export namespace IAccountRepository {
 export interface IAccountRepository
   extends IBaseRepository<Account.Id, Account.State> {
   readonly findOne: (
-    where: IAccountRepository.FindOne,
+    filter: IAccountRepository.FindOne,
   ) => Promise<Account.State | null>;
 }
